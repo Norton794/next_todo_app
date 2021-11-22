@@ -1,14 +1,10 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
-
 export default function Home() {
   return (
     <div className={`
-    flex h-screen justify-center items-center
-    bg-gradient-to-r from-purple-500 via-gray-400 to-blue-400
-    `}>
-     <span className="text-4xl">Texto</span>
+    flex justify-center items-center h-screen
+    bg-gradient-to-r from-blue-500 to-purple-500
+    text-white`}>
+     <h1>App</h1>
     </div>
   )
 }
