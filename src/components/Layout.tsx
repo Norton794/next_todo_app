@@ -2,7 +2,7 @@ import Titulo from './Titulo'
 
 interface LayoutProps{
     titulo?: string,//opicional
-    children: any
+    children?: any
 }
 
 export default function Layout(props: LayoutProps){
