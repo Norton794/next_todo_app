@@ -1,24 +1,21 @@
+import Button from "../components/Button";
 import Layout from "../components/Layout";
 import Tabela from "../components/Tabela";
 import Cliente from "../core/Cliente";
 export default function Home() {
-
-  
-
   const clientes = [
     new Cliente("Ana", 34, "1"),
     new Cliente("Bia", 49, "2"),
     new Cliente("Carla", 30, "3"),
     new Cliente("Dani", 24, "4"),
-    
   ];
 
-  function clienteSelecionado (cliente:Cliente){
-    console.log(cliente.nome)
+  function clienteSelecionado(cliente: Cliente) {
+    console.log(cliente.nome);
   }
 
-  function clienteExcluido (cliente:Cliente){
-    console.log(cliente.nome)
+  function clienteExcluido(cliente: Cliente) {
+    console.log(cliente.nome);
   }
 
   return (
@@ -29,7 +26,11 @@ export default function Home() {
     text-white`}
     >
       <Layout titulo="Cadastro Simples">
-        <Tabela clientes={clientes}
+        <div className="flex justify-end">
+          <Button color="green" className="mb-4">Novo Cliente</Button>
+        </div>
+        <Tabela
+          clientes={clientes}
           clienteSelecionado={clienteSelecionado}
           clienteExcluido={clienteExcluido}
         ></Tabela>
