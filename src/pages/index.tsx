@@ -1,4 +1,5 @@
 import Button from "../components/Button";
+import Form from "../components/Form";
 import Layout from "../components/Layout";
 import Tabela from "../components/Tabela";
 import Cliente from "../core/Cliente";
@@ -34,6 +35,7 @@ export default function Home() {
           clienteSelecionado={clienteSelecionado}
           clienteExcluido={clienteExcluido}
         ></Tabela>
+        <Form cliente={clientes[2]}/>
       </Layout>
     </div>
   );

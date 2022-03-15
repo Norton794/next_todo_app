@@ -6,7 +6,7 @@ interface ButtonProps{
 
 export default function Button(props: ButtonProps){
     return (
-        <button className={`bg-gradient-to-r from-${props.color ?? 'blue'}-400 to-${props.color ?? 'blue'}-700
+        <button className={`bg-gradient-to-r from-${props.color ?? 'gray'}-400 to-${props.color ?? 'gray'}-700
         text-white  px-4 py-2 rounded-md
         ${props.className}
         `}
