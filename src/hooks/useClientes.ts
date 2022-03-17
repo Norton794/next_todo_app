@@ -1,0 +1,56 @@
+import { useEffect, useState } from "react";
+import Cliente from "../core/Cliente";
+import ClienteRepositorio from "../core/ClienteRepositorio";
+import ColecaoCliente from "../firebase/db/ColecaoCliente";
+import useTabelaOuForm from "./useTabelaOuForm";
+
+export default function useClientes() {
+    const repo: ClienteRepositorio = new ColecaoCliente()
+  const [cliente, setCliente] = useState<Cliente>(Cliente.void())
+  const [clientes, setClientes] = useState<Cliente[]>([])
+  const {tabelaVisible, formVisible, exibirTabela, exibirForm} = useTabelaOuForm()
+
+
+  useEffect(obterTodos, [])
+
+
+  function obterTodos(){
+    repo.obterTodos().then(clientes=>{
+      setClientes(clientes)
+      exibirTabela()
+    })
+  }
+
+  function selecionarCliente(cliente: Cliente) {
+    setCliente(cliente);
+    exibirForm()
+  }
+
+  async function excluirCliente(cliente: Cliente) {
+    await repo.excluir(cliente);
+    obterTodos()
+  }
+
+  function novoCliente(){
+    setCliente(Cliente.void())
+    exibirForm()
+  }
+
+  async function salvarCliente(cliente: Cliente){
+    await repo.salvar(cliente)
+    exibirTabela()
+  }
+
+  return{
+      novoCliente,
+      salvarCliente,
+      excluirCliente,
+      selecionarCliente,
+      obterTodos,
+      cliente,
+      clientes,
+      formVisible,
+      tabelaVisible,
+      exibirTabela,
+  }
+}
